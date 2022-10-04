@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Book } from '../books.interface';
 import { BooksService } from '../books.service';
 
 @Component({
@@ -8,7 +9,6 @@ import { BooksService } from '../books.service';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent implements OnInit {
-  // wishlist: any = [];
   wishlist$!: Observable<any>;
 
   constructor(public booksService: BooksService) { }
@@ -17,7 +17,7 @@ export class WishlistComponent implements OnInit {
     this.wishlist$ = this.booksService.wishes$;
   }
 
-  deletebook(book: any) {
+  deletebook(book: Book) {
     this.booksService.fromWishlist(book);
   }
 

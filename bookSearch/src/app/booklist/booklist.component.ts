@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, fromEvent, Observable} from 'rxjs';
+import { BookResponse } from '../books.interface';
 import { BooksService } from '../books.service';
 
 @Component({
@@ -10,14 +11,11 @@ import { BooksService } from '../books.service';
 export class BooklistComponent implements OnInit {
   @ViewChild('booksearch') booksearch!: ElementRef;
   // books: any = [];
-  books$!: Observable<any>;
-
+  books$!: Observable<any[]>;
 
   constructor(public booksService: BooksService) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
     fromEvent(this.booksearch.nativeElement, 'keyup').pipe(
@@ -25,7 +23,7 @@ export class BooklistComponent implements OnInit {
     )
       .subscribe((res: any) => {
         console.log(res.target.value);
-        this.booksService.getBooks(res.target.value).subscribe();
+        this.booksService.getBooks(res.target.value).subscribe(data => console.log(data));
         // .subscribe(data => {console.log(data);
         // this.books = data});
         this.books$ = this.booksService.books$;

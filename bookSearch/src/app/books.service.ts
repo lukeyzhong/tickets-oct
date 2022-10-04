@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
+// import { Book, BookResponse } from './books.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +20,14 @@ export class BooksService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(book: string) {
+  getBooks(book: any) {
     return this.http.get([this.baseUrl, book].join(''))
     .pipe(
-      map((data: any) => {
-        this.bookList = [...data.items];
+      map((bookRes: any) => {
+        const info = bookRes.items;
+        this.bookList = [...info];
         this.booklistSubject$.next(this.bookList);
-        return data.items;
+        return info;
       }),
     )
   }
@@ -47,9 +49,5 @@ export class BooksService {
     this.wishList = deletedList;
     this.wishlistSubject$.next(this.wishList);
   }
-
-
-
-
 
 }
