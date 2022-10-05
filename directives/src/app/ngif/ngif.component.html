@@ -1,0 +1,26 @@
+<label for="check">check this</label>
+<input type="checkbox" [(ngModel)]="show">
+
+<div *ngIf="show">
+    <h1>show me: check</h1>
+</div>
+
+<div *ngIf="!show">
+    <h1>show me: uncheck</h1>
+</div>
+<hr>
+<h1 *ngIf="show else block1" >
+    show me is checked
+</h1>
+
+<ng-template #block1>
+    <h1>show me is unchecked</h1>
+</ng-template>
+
+<hr >
+<ng-container *ngIf="show">
+    <h1 *ngFor="let num of nums"> {{num}}</h1>
+</ng-container>
+
+
+
