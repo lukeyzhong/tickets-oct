@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { NgforComponent } from './ngfor/ngfor.component';
 import { NgifComponent } from './ngif/ngif.component';
 import { NgfortrackbyComponent } from './ngfortrackby/ngfortrackby.component';
+import { NgswitchComponent } from './ngswitch/ngswitch.component';
+import { CustomdiectiveComponent } from './customdiective/customdiective.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NgforComponent,
     NgifComponent,
-    NgfortrackbyComponent
+    NgfortrackbyComponent,
+    NgswitchComponent,
+    CustomdiectiveComponent
   ],
   imports: [
     BrowserModule,
