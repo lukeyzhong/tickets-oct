@@ -9,6 +9,8 @@ import { NgifComponent } from './ngif/ngif.component';
 import { NgfortrackbyComponent } from './ngfortrackby/ngfortrackby.component';
 import { NgswitchComponent } from './ngswitch/ngswitch.component';
 import { CustomdiectiveComponent } from './customdiective/customdiective.component';
+import { ColordirDirective } from './customdiective/colordir.directive';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { CustomdiectiveComponent } from './customdiective/customdiective.compone
     NgifComponent,
     NgfortrackbyComponent,
     NgswitchComponent,
-    CustomdiectiveComponent
+    CustomdiectiveComponent,
+    ColordirDirective
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,10 @@
-<p>customdiective works!</p>
+<h1>Pick a highlight color</h1>
+<div>
+    <input type="radio" name="color" (click)="color = 'green'"> Green
+    <input type="radio" name="color" (click)="color = 'yellow'"> Yellow
+</div>
+
+<p appColordir [colorpass]="color" defaultColor="grey">Hightlight me</p>
+<p appColordir [colorpass]="color">Hightlight me too</p>
+
+<input appColordir type="text">this is input

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-customdiective',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customdiective.component.css']
 })
 export class CustomdiectiveComponent implements OnInit {
-
+  color!: string;
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
