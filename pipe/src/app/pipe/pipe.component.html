@@ -1,3 +1,11 @@
 <h1>{{ obj | json}}</h1>
 
+<hr>
+
+<div *ngFor="let ele of obj | keyvalue">
+    {{ele.key}} --> {{ele.value}}
+</div>
+
+<hr>
+
 

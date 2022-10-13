@@ -7,18 +7,20 @@ import { AppComponent } from './app.component';
 import { ConvertPipe } from './custompipe/convert.pipe';
 import { CustompipeComponent } from './custompipe/custompipe.component';
 import { PipeComponent } from './pipe/pipe.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustompipeComponent,
     ConvertPipe,
-    PipeComponent
+    PipeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

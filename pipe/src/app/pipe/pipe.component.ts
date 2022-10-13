@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,9 +13,19 @@ export class PipeComponent implements OnInit {
     company: 'jump',
   };
 
-  constructor() { }
+  users$: any;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+  }
+
+  sorting() {
+    return 0;
+  }
+
+  getUsers() {
+    this.http.get('https://jsonplaceholder.typicode.com/todos');
   }
 
 }
