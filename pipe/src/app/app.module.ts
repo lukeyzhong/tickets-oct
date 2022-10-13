@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConvertPipe } from './custompipe/convert.pipe';
 import { CustompipeComponent } from './custompipe/custompipe.component';
+import { PipeComponent } from './pipe/pipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustompipeComponent,
-    ConvertPipe
+    ConvertPipe,
+    PipeComponent
   ],
   imports: [
     BrowserModule,
