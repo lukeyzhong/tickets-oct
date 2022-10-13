@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -7,20 +7,24 @@ import { Subscription } from 'rxjs';
   templateUrl: './pipe.component.html',
   styleUrls: ['./pipe.component.css']
 })
-export class PipeComponent implements OnInit {
+export class PipeComponent implements OnInit, OnDestroy {
   obj = {
     name: 'jojo',
     age: 12,
     company: 'jump',
   };
 
-  users$: any;
+  users: any;
   subscription!: Subscription;
+  users$: any;
+  
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.users$ = this.getUsers().subscribe();
+    this.subscription = this.getUsers().subscribe(data => {
+      this.users = data;
+    });
   }
 
   sorting() {
@@ -31,6 +35,9 @@ export class PipeComponent implements OnInit {
     return this.http.get('https://jsonplaceholder.typicode.com/todos');
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
   
 
 }

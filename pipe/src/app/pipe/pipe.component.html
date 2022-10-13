@@ -2,14 +2,16 @@
 
 <hr>
 
-<div *ngFor="let ele of obj | keyvalue">
+<div *ngFor="let ele of obj | keyvalue: sorting">
     {{ele.key}} --> {{ele.value}}
 </div>
 
 <hr>
 
-<div *ngFor="let user of users$">
-    {{ users$.title}}
+<div *ngFor="let user of users">
+    {{ user.title}}
 </div>
+
+
 
 

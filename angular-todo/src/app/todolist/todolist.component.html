@@ -8,9 +8,10 @@
   (keyup.enter)="addtodo(inputTodo)"
 />
 
-<ul id="todolist__container">
+<button (click)="onShow()">change</button>
+<ul id="todolist__container" >
   <app-todoitem
-    *ngFor="let todo of todoService.todos$| async | sort: 'title' "
+    *ngFor="let todo of todoService.todos$| async | sort: show :'title' "
     [todoitem]="todo"
     (deleteId)="deletetodo($event)"
   ></app-todoitem>

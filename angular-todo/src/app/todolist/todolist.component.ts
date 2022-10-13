@@ -12,6 +12,7 @@ export class TodolistComponent implements OnInit {
   // todolist: Todo[] = [];
   inputTodo: string = '';
   // todos$!: Observable<any>;
+  show: boolean = true;
 
 
   constructor(public todoService: TodoService) {}
@@ -19,6 +20,11 @@ export class TodolistComponent implements OnInit {
   ngOnInit(): void {
     this.todoService.getTodos().subscribe();
     // this.todos$ = this.todoService.todos$;
+  }
+
+  onShow() {
+    this.show = !this.show;
+    console.log(this.show);
   }
 
   deletetodo(id: string) {
