@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pipe',
@@ -14,10 +15,12 @@ export class PipeComponent implements OnInit {
   };
 
   users$: any;
+  subscription!: Subscription;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.users$ = this.getUsers().subscribe();
   }
 
   sorting() {
@@ -25,7 +28,9 @@ export class PipeComponent implements OnInit {
   }
 
   getUsers() {
-    this.http.get('https://jsonplaceholder.typicode.com/todos');
+    return this.http.get('https://jsonplaceholder.typicode.com/todos');
   }
+
+  
 
 }
