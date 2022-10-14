@@ -8,7 +8,7 @@
   (keyup.enter)="addtodo(inputTodo)"
 />
 
-<button (click)="onShow()">change</button>
+<button (click)="onShow()">change the order</button>
 <ul id="todolist__container" >
   <app-todoitem
     *ngFor="let todo of todoService.todos$| async | sort: show :'title' "

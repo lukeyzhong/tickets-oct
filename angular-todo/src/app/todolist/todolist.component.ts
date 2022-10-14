@@ -12,7 +12,7 @@ export class TodolistComponent implements OnInit {
   // todolist: Todo[] = [];
   inputTodo: string = '';
   // todos$!: Observable<any>;
-  show: boolean = true;
+  show: boolean = false;
 
 
   constructor(public todoService: TodoService) {}
